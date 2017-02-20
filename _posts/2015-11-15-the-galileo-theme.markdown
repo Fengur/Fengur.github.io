@@ -6,19 +6,22 @@ categories: Jobs
 location: Beijing, China
 ---
 
+
 #### 1、文件说明
 
 ![图片.png](http://upload-images.jianshu.io/upload_images/1155603-b4878f4cd31cee15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**SGContact.h **编译了C++代码，所以引用的地方均需要更名为**.mm**
+**SGContact.h** 编译了C++代码，所以引用的地方均需要更名为**.mm**
 
 **SGAddressBook** 用于获取手机通讯录内容
 
 **SGContactData** 包含百家姓本地文件，拼音算法依赖文件
 
 #### 2、使用说明
+
 - 将**SGContact**文件夹添加进工程中 
 - 在显示未替换结果的地方导入文件
+
 ```
 #import "SGContactWrapper.h"
 ```
@@ -28,6 +31,7 @@ resultStr = [[SGContactWrapper sharedInstance] convertWithOriginString:resultStr
 ```
 
 #### 3、注意事项
+
 - 如果需要(**@optional**)监控是否成功获取通讯录权限以作出响应，实现**SGContactWrapper**的代理方法即可
 
 ```
@@ -41,9 +45,13 @@ if(result){
 }
 }
 ```
+
 - 目前通迅录的更新条件是联系人姓名信息出现变动，详细实现在**SGContactWrapper.m**中。
+
 - 目前有两种实现方式：
+
 - 获取本地通讯录以.txt文件存到Doument中，对应一种调用方法
+
 ```
 /**
 从本地存的contact.txt文件读取联系人信息
@@ -68,6 +76,7 @@ if(result){
 
 ```
 - 涉及要隐私权限，需要在plist文件里添加key值
+
 ```
 Privacy - Contacts Usage Description
 ```
