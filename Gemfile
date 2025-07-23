@@ -1,2 +1,4 @@
-gem 'jekyll'
-gem 'jekyll-paginate'
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.3"
+gem "jekyll-paginate"
