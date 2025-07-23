@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>搜狗语音：通讯录优先识别代码说明</title>
+  <meta name="description" content="1. 文件说明">
+  
+  
+      <script>
+      (function(d) {
+         var config = {
+            kitId: 'kwf5dox',
+            scriptTimeout: 3000,
+            async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Sanchez" type="text/css">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="canonical" href="http://fengur.cn/jobs/2017/02/20/sougou-contact-code-explain/">
+  <link rel="alternate" type="application/rss+xml" title="Fengur" href="http://fengur.cn/feed.xml">
+</head>
+
+    <body class="is-offset ">
+        <header role="banner">
+    <a href="/" id="banner" title="Fengur">
+        <h1>Fengur</h1>
+    </a>
+</header>
+
+        <section role="main">
+            
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://fengur.cn/" itemprop="url"></a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">搜狗语音：通讯录优先识别代码说明</h1>
+    
+    <h4 id="1-文件说明">1. 文件说明</h4>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/1155603-b4878f4cd31cee15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png" /></p>
+
+<p><strong>SGContact.h</strong> 编译了 C++ 代码，所以引用的地方均需要更名为 <strong>.mm</strong></p>
+
+<p><strong>SGAddressBook</strong> 用于获取手机通讯录内容</p>
+
+<p><strong>SGContactData</strong> 包含百家姓本地文件，拼音算法依赖文件</p>
+
+<h4 id="2-使用说明">2. 使用说明</h4>
+
+<ol>
+  <li>将 <strong>SGContact</strong> 文件夹添加进工程中</li>
+  <li>在显示未替换结果的地方导入文件</li>
+</ol>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#import "SGContactWrapper.h"
+</span></code></pre></div></div>
+
+<ol>
+  <li>上屏之前调用替换方法</li>
+</ol>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resultStr</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SGContactWrapper</span> <span class="nf">sharedInstance</span><span class="p">]</span> <span class="nf">convertWithOriginString</span><span class="p">:</span><span class="n">resultStr</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h4 id="3-注意事项">3. 注意事项</h4>
+
+<ul>
+  <li>如果需要（<strong>@optional</strong>）监控是否成功获取通讯录权限以作出响应，实现 <strong>SGContactWrapper</strong> 的代理方法即可</li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">SGContactWrapper</span> <span class="nf">sharedInstance</span><span class="p">].</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getContactPermissionSuccess</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">result</span><span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">){</span>
+        <span class="c1">// success</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="c1">// tell user to get permission</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>目前通讯录的更新条件是联系人姓名信息出现变动，详细实现在 <strong>SGContactWrapper.m</strong> 中。</p>
+  </li>
+  <li>
+    <p>目前有两种实现方式：</p>
+
+    <ol>
+      <li>
+        <p>获取本地通讯录以 .txt 文件存到 Doument 中，对应一种调用方法</p>
+
+        <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cm">/**
+ 从本地存的 contact.txt 文件读取联系人信息
+ @param originStr 初始字段
+ @return 跟联系人姓名替换优先级后的结果
+ */</span>
+ <span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">convertWithOriginStr</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">originStr</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>将本地通讯录暂存到 <strong>SGContactWrapper</strong> 单例的属性（<strong>sgContactArray</strong>）里，对应另一种调用方法，<strong>推荐使用这一种方法</strong></p>
+
+        <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cm">/**
+ 从单例的属性读取联系人信息
+ @param originString 初始字段
+ @return 跟联系人姓名替换优先级后的结果
+ */</span>
+ <span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">convertWithOriginString</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">originString</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>涉及要隐私权限，需要在 plist 文件里添加 key 值</p>
+  </li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Privacy - Contacts Usage Description
+</code></pre></div></div>
+
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2017">
+        <strong>2017</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2017" class="taxonomy__section">
+    <h2 class="archive__subtitle">2017</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jobs/2017/02/20/sougou-contact-code-explain/" rel="permalink">搜狗语音：通讯录优先识别代码说明
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. 文件说明
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jobs/2017/01/04/ios-ipa-image-extract/" rel="permalink">the-galileo-theme
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">作为一个移动端开发人员，经常要扒一扒其他项目的图片资源，可以用来直接使用或者做预开发时的占位图，也可以通过分析一个 ipa 中的图片资源来推导某一个功能的实现原理，简而言之，扒图也是开发人员应该具有的一个技能。考虑到年纪到了，忘东西越来越快，明年后年可能忘得更快，记一帖当做笔记。
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+
+        </section>
+        <footer id="footer">
+    <p>Your Host: <strong><a href="http://fengur.cn" target="_blank">Fengur</a></strong></p>
+    <p class="legal">Easy life easy mind</p>
+</footer>
+
+        <script type="text/javascript" src="/js/galileo.js"></script>
+    </body>
+</html>
