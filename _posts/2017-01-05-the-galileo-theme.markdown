@@ -1,9 +1,9 @@
 ---
-layout: post
-title:  "iOS 深度获取.ipa图片资源文件"
-date:   2016-012-20 14:35:24 +0100
-categories: iOS
-location: Beijing, China
+layout: posts
+title:  "the-galileo-theme"
+date:   2017-01-05 00:00:00 +0100
+categories: Jobs
+author_profile: true
 ---
 
 作为一个移动端开发人员，经常要扒一扒其他项目的图片资源，可以用来直接使用或者做预开发时的占位图，也可以通过分析一个ipa中的图片资源来推导某一个功能的实现原理，简而言之，扒图也是开发人员应该具有的一个技能。考虑到年纪到了，忘东西越来越快，明年后年可能忘得更快，记一帖当做笔记。
@@ -28,6 +28,7 @@ location: Beijing, China
 **ipa**的资源已经拆解完毕，可以简单预览一下。
 
 ![图片.png](http://upload-images.jianshu.io/upload_images/1155603-90eb7ac2acbb8056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![图片.png](http://upload-images.jianshu.io/upload_images/1155603-6550fdbf632c20e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

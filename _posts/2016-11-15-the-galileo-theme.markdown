@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: posts
 title:  "搜狗语音：通讯录优先识别代码说明"
 date:   2017-02-20 19:55:14 +0100
 categories: Jobs
 location: Beijing, China
+author_profile: true
 ---
 
 

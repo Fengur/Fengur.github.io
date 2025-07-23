@@ -11,12 +11,32 @@ author: Fengur
 author_link: http://fengur.cn
 author_description: Easy life easy mind 
 email: duraedream@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: Write an awesome description for your new site here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://fengur.cn" # the base hostname & protocol for your site
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-include-cache
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+# 评论系统（Disqus）
+disqus:
+  shortname: fengur-demo # 你可以在 Disqus 注册后替换为自己的 shortname
+# 主题相关配置
+minimal_mistakes_skin: "default"
+# 导航栏示例
+nav:
+  - title: "首页"
+    url: "/"
+  - title: "归档"
+    url: "/year-archive/"
+  - title: "关于"
+    url: "/about/"
+# 其他配置可参考官方文档
 
 # Picturefill
 # A responsive image polyfill: http://scottjehl.github.io/picturefill/
