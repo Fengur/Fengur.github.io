@@ -1,0 +1,179 @@
+/* ===== 整体节奏 ===== */
+:root {
+    --main-width: 820px;
+    --gap: 28px;
+}
+
+body {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ===== 导航栏：全宽、左右分布 ===== */
+.header {
+    padding: 20px 40px;
+    max-width: 100%;
+}
+
+.header .header-nav {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 26px !important;
+    letter-spacing: 1px;
+}
+
+.menu {
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+#menu a {
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+#menu a:hover {
+    background: var(--code-bg);
+}
+
+.nav-sub {
+    font-size: 0.68em;
+    opacity: 0.45;
+    font-weight: normal;
+    margin-left: 1px;
+}
+
+/* ===== 首页 Profile 区 ===== */
+.first-entry {
+    border: none !important;
+    margin-top: 0;
+}
+
+.home-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 0 36px;
+    position: relative;
+}
+
+.home-info::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    border-radius: 2px;
+    margin: 28px auto 0;
+    opacity: 0.4;
+}
+
+.home-info .entry-header h1 {
+    font-size: 2.6em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.home-info .entry-content {
+    font-size: 1.2em;
+    opacity: 0.5;
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+/* 社交图标 */
+.home-info .social-icons {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.home-info .social-icons a {
+    opacity: 0.35;
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.home-info .social-icons a:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.home-info .social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ===== 文章列表 ===== */
+.post-entry {
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 20px 24px;
+}
+
+.post-entry .entry-header h2 {
+    font-size: 1.25em;
+    margin-bottom: 6px;
+}
+
+.post-entry .entry-content {
+    font-size: 0.92em;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.post-entry .post-meta {
+    font-size: 0.82em;
+    opacity: 0.5;
+    margin-top: 8px;
+}
+
+/* ===== 内容页 ===== */
+.main {
+    max-width: var(--main-width);
+    margin: auto;
+    padding: 40px 24px;
+}
+
+.post-title {
+    font-size: 2em;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.post-content {
+    font-size: 1em;
+    line-height: 1.9;
+}
+
+.post-content h2 {
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+}
+
+/* ===== 代码块 ===== */
+.post-content pre {
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88em;
+}
+
+/* ===== 分类页标题 ===== */
+.terms-tags {
+    padding-top: 40px;
+}
+
+/* ===== 搜索页 ===== */
+#searchInput {
+    font-size: 1.1em;
+    padding: 12px 16px;
+    border-radius: 8px;
+}

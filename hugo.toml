@@ -1,0 +1,85 @@
+baseURL = "https://fengur.cn/"
+title = "风塘 WindHaven"
+theme = "PaperMod"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh"
+paginate = 10
+
+enableRobotsTXT = true
+buildDrafts = false
+
+[params]
+  author = "Fengur"
+  description = "Easy life easy mind"
+  env = "production"
+  defaultTheme = "auto"  # auto / light / dark
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  ShowWordCount = true
+
+  [params.homeInfoParams]
+    Title = "Fengur"
+    Content = "Be a golden fish ~"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/Fengur"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:fengur@qq.com"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[menu]
+  [[menu.main]]
+    identifier = "fgzt"
+    name = "FGZT(砖头)"
+    url = "/categories/fgzt/"
+    weight = 1
+  [[menu.main]]
+    identifier = "fglg"
+    name = "FGLG(活着)"
+    url = "/categories/fglg/"
+    weight = 2
+  [[menu.main]]
+    identifier = "fgfp"
+    name = "FGFP(废品)"
+    url = "/projects/"
+    weight = 3
+  [[menu.main]]
+    identifier = "fgfd"
+    name = "FGFD(查找)"
+    url = "/search/"
+    weight = 4
+  [[menu.main]]
+    identifier = "fgul"
+    name = "FGUL(目录)"
+    url = "/archives/"
+    weight = 5
+  [[menu.main]]
+    identifier = "me"
+    name = "ME(我)"
+    url = "/about/"
+    weight = 6
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+    noClasses = true
