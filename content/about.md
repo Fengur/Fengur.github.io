@@ -9,7 +9,7 @@ ShowWordCount: false
 
 ## Fengur
 
-Easy life easy mind.
+Be a golden fish ~
 
 写代码，听音乐，偶尔折腾点有意思的东西。
 
