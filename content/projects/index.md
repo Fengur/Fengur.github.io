@@ -32,9 +32,3 @@ macOS 麦克风硬件输入音量控制库 (Rust)。
 ![micvol demo](https://github.com/Fengur/micvol/raw/master/demo.gif)
 
 [GitHub](https://github.com/Fengur/micvol)
-
-## FGDatePicker
-
-iOS UIKit 日期选择弹窗组件。纯 frame 布局，无 Auto Layout。Closure + async/await 双 API。SPM + CocoaPods 接入。
-
-[GitHub](https://github.com/Fengur/FGDatePicker)

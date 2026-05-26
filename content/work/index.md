@@ -31,12 +31,6 @@ macOS hardware-level microphone input volume control via CoreAudio HAL. Maximize
 
 [GitHub](https://github.com/Fengur/micvol)
 
-## FGDatePicker
-
-Lightweight UIKit date picker modal. Pure frame-based layout, no Auto Layout. Closure + async/await dual API. SPM + CocoaPods.
-
-[GitHub](https://github.com/Fengur/FGDatePicker)
-
 ---
 
 Previously: 5+ years on a wearable voice SDK. Earlier: speech recognition SDK work. The boundary between VAD and ASR — endpoint detection strategy, dynamic thresholds, audio gain at the analog / digital interface — is where these libraries come from.
