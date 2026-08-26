@@ -48,6 +48,11 @@ buildDrafts = false
 
 [menu]
   [[menu.main]]
+    identifier = "fgmc"
+    name = "FGMC(输出)"
+    url = "/posts/modelcreate/"
+    weight = 0
+  [[menu.main]]
     identifier = "fgzt"
     name = "FGZT(砖头)"
     url = "/categories/fgzt/"
