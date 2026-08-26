@@ -49,7 +49,7 @@ buildDrafts = false
 [menu]
   [[menu.main]]
     identifier = "fgmc"
-    name = "FGMC(输出)"
+    name = "FGMC(模创)"
     url = "/posts/modelcreate/"
     weight = 0
   [[menu.main]]
