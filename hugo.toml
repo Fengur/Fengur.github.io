@@ -14,14 +14,14 @@ buildDrafts = false
   description = "Easy life easy mind"
   env = "production"
   defaultTheme = "auto"  # auto / light / dark
-  ShowReadingTime = true
+  ShowReadingTime = false
   ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
-  ShowWordCount = true
+  ShowWordCount = false
 
   [params.homeInfoParams]
     Title = "Fengur"
