@@ -3,6 +3,9 @@ title: "CRISPR 与基因编辑"
 date: 2026-08-26
 weight: 19
 draft: false
+description: "CRISPR（Clustered Regularly Interspaced Short Palindromic Repeats…"
+categories: [科学与技术史]
+tags: [CRISPR, 与基因编辑]
 ---
 
 # CRISPR 与基因编辑
