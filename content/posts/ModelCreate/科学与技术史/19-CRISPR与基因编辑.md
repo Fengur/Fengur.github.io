@@ -2,6 +2,7 @@
 title: "CRISPR 与基因编辑"
 date: 2026-08-26
 weight: 19
+image: "https://images.unsplash.com/photo-1637929476734-bd7f5f78e40a?w=1200&q=80"
 draft: false
 description: "CRISPR（Clustered Regularly Interspaced Short Palindromic Repeats…"
 categories: [科学与技术史]
@@ -12,6 +13,8 @@ tags: [CRISPR, 与基因编辑]
 
 ## 一、CRISPR 的发现
 
+
+![配图](https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=800&q=80)
 CRISPR（Clustered Regularly Interspaced Short Palindromic Repeats，规律间隔成簇短回文重复序列）的故事始于 1987 年——日本科学家**石野良纯**（Yoshizumi Ishino）在大肠杆菌的基因组中发现了一段奇怪的重复序列。他不知道这些序列的功能——它们看起来没有意义。
 
 2005 年，几个研究团队独立地发现：CRISPR 序列与细菌的免疫系统有关。细菌用 CRISPR 来记住入侵的病毒——当同样的病毒再次入侵时，细菌可以用 CRISPR 来识别并摧毁它。
@@ -20,6 +23,8 @@ CRISPR（Clustered Regularly Interspaced Short Palindromic Repeats，规律间�
 
 ## 二、CRISPR-Cas9 的开发
 
+
+![配图](https://images.unsplash.com/photo-1641903202531-bfa6bf0c6419?w=800&q=80)
 2012 年，两位科学家做出了将 CRISPR 变成基因编辑工具的关键贡献。
 
 **珍妮弗·杜德纳**（Jennifer Doudna，1964—）是美国加州大学伯克利分校的生物化学家。**埃马纽埃尔·卡彭蒂耶**（Emmanuelle Charpentier，1968—）是法国-瑞典微生物学家。她们的合作研究发现：CRISPR-Cas9 系统可以被编程来切割特定的 DNA 序列。
