@@ -4,55 +4,225 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>拾日 · 下载</title>
+<meta name="description" content="拾日 · 一日一瓣。一个安静、素雅的习惯打卡应用。">
 <style>
+  :root {
+    --phone: #fbfaf6;
+    --card:  #ffffff;
+    --ink:   #1a1a1a;
+    --ink2:  #3d3b36;
+    --muted: #9a9893;
+    --muted2:#c3c0b7;
+    --line:  #ecebe4;
+    --line2: #e3e1da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --phone: #15140f;
+      --card:  #1e1d18;
+      --ink:   #f1efe6;
+      --ink2:  #d6d3c8;
+      --muted: #8b887f;
+      --muted2:#5a5852;
+      --line:  #2a2924;
+      --line2: #35332d;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, "PingFang SC", "Hiragino Sans GB",
                  "Microsoft YaHei", sans-serif;
-    max-width: 460px;
-    margin: 48px auto;
-    padding: 24px;
-    text-align: center;
-    color: #1a1a1a;
-    background: #fbfaf6;
+    background: var(--phone);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    -webkit-font-smoothing: antialiased;
   }
-  h1 { font-weight: normal; letter-spacing: 6px; font-size: 32px; margin-bottom: 4px; }
-  .slogan { color: #9a9893; font-size: 13px; letter-spacing: 4px; margin-bottom: 48px; }
-  .grid { display: grid; gap: 12px; }
+  main {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  /* Hero bloom — same petal mark as the app */
+  .bloom {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
+  }
+  .bloom circle { fill: var(--muted2); }
+  .bloom .ring { fill: none; stroke: var(--line2); }
+  .bloom .ring-dashed { fill: none; stroke: var(--muted2); stroke-dasharray: 2 4; opacity: 0.55; }
+  .bloom .center { fill: var(--ink); }
+
+  /* Brand type */
+  .brand {
+    font-family: "Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", serif;
+    font-weight: normal;
+    font-size: 44px;
+    letter-spacing: 14px;
+    margin: 0;
+    line-height: 1;
+    text-indent: 14px; /* visually balance the trailing letter-spacing */
+    color: var(--ink);
+  }
+  .slogan {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 6px;
+    margin: 18px 0 0;
+    text-indent: 6px;
+  }
+
+  /* Classical ornament: — · — */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 28px auto;
+  }
+  .ornament .bar {
+    width: 32px;
+    height: 1px;
+    background: var(--line2);
+  }
+  .ornament .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--muted2);
+  }
+
+  .verse {
+    font-family: "Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: var(--ink2);
+    margin: 0 0 44px;
+    text-indent: 4px;
+  }
+
+  /* Action card */
+  .actions {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   a.btn {
-    display: block;
-    padding: 14px 28px;
-    background: #ffffff;
-    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--card);
+    color: var(--ink);
     text-decoration: none;
-    border-radius: 14px;
-    border: 1px solid #ecebe4;
+    border-radius: 12px;
+    border: 1px solid var(--line);
     font-size: 15px;
     letter-spacing: 2px;
+    transition: transform 120ms ease, background 120ms ease;
   }
+  a.btn .os { color: var(--muted); font-size: 13px; letter-spacing: 3px; }
+  a.btn .act { color: var(--ink); font-size: 14px; letter-spacing: 2px; }
+  a.btn:hover { transform: translateY(-1px); }
   a.btn.primary {
-    background: #1a1a1a;
-    color: #fbfaf6;
-    border-color: #1a1a1a;
+    background: var(--ink);
+    color: var(--phone);
+    border-color: var(--ink);
   }
-  a.btn.disabled { color: #c3c0b7; pointer-events: none; }
-  .tip { color: #9a9893; font-size: 12px; margin-top: 32px; line-height: 1.7; }
+  a.btn.primary .os { color: var(--muted2); }
+  a.btn.primary .act { color: var(--phone); }
+  a.btn.disabled {
+    pointer-events: none;
+    background: transparent;
+    border-color: transparent;
+  }
+  a.btn.disabled .os { color: var(--muted2); }
+  a.btn.disabled .act { color: var(--muted2); }
+
+  /* Footer tip + meta */
+  .tip {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 28px auto 0;
+    max-width: 340px;
+    letter-spacing: 1px;
+  }
+  .meta {
+    color: var(--muted2);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 36px;
+  }
+  .meta .sep { margin: 0 8px; color: var(--line2); }
 </style>
 </head>
 <body>
-  <h1>拾  日</h1>
-  <div class="slogan">一 日 一 瓣</div>
+  <main>
+    <svg class="bloom" viewBox="0 0 140 140" aria-hidden="true">
+      <!-- outer dashed ring -->
+      <circle class="ring-dashed" cx="70" cy="70" r="60"/>
+      <!-- inner solid ring -->
+      <circle class="ring" cx="70" cy="70" r="30" stroke-width="1"/>
+      <!-- 8 petals around the inner ring -->
+      <circle cx="70"   cy="22"  r="5"/>
+      <circle cx="104"  cy="36"  r="5"/>
+      <circle cx="118"  cy="70"  r="5"/>
+      <circle cx="104"  cy="104" r="5"/>
+      <circle cx="70"   cy="118" r="5"/>
+      <circle cx="36"   cy="104" r="5"/>
+      <circle cx="22"   cy="70"  r="5"/>
+      <circle cx="36"   cy="36"  r="5"/>
+      <!-- center -->
+      <circle class="center" cx="70" cy="70" r="4.5"/>
+    </svg>
 
-  <div class="grid">
-    <a class="btn" href="https://github.com/Fengur/Fengur.github.io/releases/download/shiri-v0.1.0/shiri-v0.1.0.apk" data-os="android">
-      Android · 下载 APK
-    </a>
-    <a class="btn disabled" data-os="ios">iOS · 敬请期待</a>
-    <a class="btn disabled" data-os="harmony">鸿蒙 · 敬请期待</a>
-  </div>
+    <h1 class="brand">拾&nbsp;&nbsp;日</h1>
+    <p class="slogan">一 日 一 瓣</p>
 
-  <p class="tip">
-    下载 APK 后系统可能提示&ldquo;文件可能有害&rdquo;,点&ldquo;仍然保留&rdquo;即可安装。
-  </p>
+    <div class="ornament" aria-hidden="true">
+      <span class="bar"></span><span class="dot"></span><span class="bar"></span>
+    </div>
+
+    <p class="verse">愿与君共此日</p>
+
+    <nav class="actions">
+      <a class="btn" href="https://github.com/Fengur/Fengur.github.io/releases/download/shiri-v0.1.0/shiri-v0.1.0.apk" data-os="android">
+        <span class="os">Android</span>
+        <span class="act">下载 APK</span>
+      </a>
+      <a class="btn disabled" data-os="ios">
+        <span class="os">iOS</span>
+        <span class="act">敬请期待</span>
+      </a>
+      <a class="btn disabled" data-os="harmony">
+        <span class="os">鸿蒙</span>
+        <span class="act">敬请期待</span>
+      </a>
+    </nav>
+
+    <p class="tip">
+      下载后系统可能提示&ldquo;文件可能有害&rdquo;,点&ldquo;仍然保留&rdquo;即可安装。<br>
+      单机离线 · 不收集数据
+    </p>
+
+    <p class="meta">
+      <span>v0.1.0</span>
+      <span class="sep">·</span>
+      <span>Android 8.0+</span>
+    </p>
+  </main>
 
   <script>
     const ua = navigator.userAgent;
@@ -60,7 +230,10 @@
              : /Android/.test(ua) ? 'android'
              : /iPhone|iPad/.test(ua) ? 'ios'
              : null;
-    if (os) document.querySelector(`[data-os="${os}"]`)?.classList.add('primary');
+    if (os) {
+      const el = document.querySelector(`[data-os="${os}"]`);
+      if (el && !el.classList.contains('disabled')) el.classList.add('primary');
+    }
   </script>
 </body>
 </html>
